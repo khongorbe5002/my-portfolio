@@ -11,7 +11,7 @@ import Everything from './Everything';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-portfolio/">
       {/* Notice how the layout wrapper and HomeNav are gone from here! */}
       <Routes>
         <Route path="/" element={<Home />} />
