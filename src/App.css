@@ -114,12 +114,13 @@ body {
   line-height: 1;
   min-width: 0;
   
-  /* NEW: Safari Text-Wrapping Fixes */
-  width: 100%; 
+  /* Safari Wrap Fixes */
   white-space: pre-wrap; 
   word-break: break-word; 
   overflow-wrap: break-word; 
-}
+  
+  /* NEW: Keeps the text flowing naturally so the cursor can sit next to it */
+  display: inline;
 
 .typewriter-cursor {
   font-size: clamp(0.1rem, 1.5vw, 6rem); 
@@ -128,7 +129,7 @@ body {
   animation: blinkCursor 0.8s step-end infinite;
 
   /* THE FIX: Turns the cursor into a "ghost" so it takes up 0 layout space */
-  position: absolute; 
+  display: inline-block;
   margin-left: 4px; /* Adds a tiny gap so the ghost cursor doesn't overlap your last letter */
 }
 
