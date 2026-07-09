@@ -122,6 +122,8 @@ body {
   /* NEW: Keeps the text flowing naturally so the cursor can sit next to it */
   display: inline;
 
+}
+
 .typewriter-cursor {
   font-size: clamp(0.1rem, 1.5vw, 6rem); 
   color: #ffffff;
