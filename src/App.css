@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: 'Google Sans Code', monospace;
+}
+
+/* navigation wrapper*/
+.home-navigation {
+  display: flex;
+  width: 25%; /* portion of left side */
+  justify-content: flex-start; 
+  padding: 2rem; 
+  height: 100vh; /* Back to your working 100vh! */
+  box-sizing: border-box; 
+}
+
+/* The master container holding both sides */
+.portfolio-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevents the page from accidentally scrolling down */
+}
+
+/* The right-side container */
+.intro-container {
+  max-width: 75%; /* right side portion */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; /* Centers your marquee and text vertically */
+  align-items: flex-start;
+  position: relative;
+}
+
+/* 2. The List of Pills */
+.nav-links {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: space-evenly;
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* 3. Styles the links into curved boxes */
+.nav-links a {
+  display: block;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  color: #1a1a1a; /* text color -> change */
+  background-color: #f0f0f0; /* background box -> change */
+  border-radius: 30px; 
+  transition: transform 0.2s ease, background-color 0.2s ease; 
+
+  width: 15vw; /* Sets width to 15% of the Viewport Width */
+  min-width: 300px; /* A safety net so they don't become completely unreadable on thin screens */
+  padding: 4vh 2vw; /* Scales the inner spacing based on window height and width */
+  font-size: clamp(1rem, 1.5vw, 3rem); /* Fluid typography scaling */
+}
+
+/* 4. A subtle hover animation */
+.nav-links a:hover {
+  background-color: #e0e0e0; /* Darkens slightly when hovered */
+}
+
+/* 1. The wrapper holding the typewriter */
+.typewriter-wrapper {
+  width: 70%;
+  height: 80vh; 
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+
+
+  padding-bottom: 40vh;
+  
+  /* THE NEW TRICK: Flips the container upside down. 
+     This anchors the text to the bottom and forces the overflow to go UP! */
+  flex-direction: column-reverse; 
+  
+  /* Adds a vertical scrollbar only when the text gets taller than 40vh */
+  overflow-y: auto; 
+  
+  margin-bottom: 2rem;
+  padding-right: 2rem; /* Keeps the text from bumping into the new scrollbar */
+}
+
+/* --- BONUS: Custom Terminal Scrollbar --- */
+.typewriter-wrapper::-webkit-scrollbar {
+  width: 8px; /* Makes the scrollbar thin and sleek */
+}
+
+.typewriter-wrapper::-webkit-scrollbar-track {
+  background: transparent; /* Hides the ugly background track */
+}
+
+.typewriter-wrapper::-webkit-scrollbar-thumb {
+  background: #1a1a1a; /* Matches your dark text color */
+  border-radius: 10px; /* Rounds the edges of the scrollbar */
+}
+
+/* 2. Styles the actual text and the blinking cursor */
+.typewriter-text {
+  margin: 0;
+  font-size: clamp(0.1rem, 1.5vw, 3rem); 
+  text-transform: lowercase;
+  color: #ffffff;
+  line-height: 1;
+
+}
+.typewriter-cursor {
+  font-size: clamp(0.1rem, 1.5vw, 6rem); 
+  color: #ffffff;
+  line-height: 1;
+  animation: blinkCursor 0.8s step-end infinite;
+
+  /* THE FIX: Turns the cursor into a "ghost" so it takes up 0 layout space */
+  position: absolute; 
+  margin-left: 4px; /* Adds a tiny gap so the ghost cursor doesn't overlap your last letter */
+}
+
+/* 3. The Animation Engine for the blink */
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
+}
+
+/* The new wrapper for your subpages */
+.subpage-container {
+  padding: 2rem 4rem; /* Adds nice breathing room around the edges */
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* Align subpages (like Resume) to the right column so content lines up with home navigation */
+ .subpage-container--aligned {
+   margin: 0 auto;
+   width: 100%;
+   max-width: 900px; /* optional cap so content doesn't get too wide on large screens */
+   padding: 2rem 3rem;
+   box-sizing: border-box;
+   position: relative; /* so .top-directory (absolute) positions relative to this container */
+}
+
+ .subpage-container--projects {
+   margin: 0 auto;
+   width: 100%;
+   padding: 2rem 3rem;
+   box-sizing: border-box;
+   position: relative; /* so .top-directory (absolute) positions relative to this container */
+}
+
+/* make embedded PDFs and other media responsive */
+.subpage-container--aligned iframe,
+.subpage-container--aligned .embed-responsive {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* The small top directory */
+.top-directory {
+  position: absolute;
+  top: 2rem;
+  /* default to left; specific modifiers adjust this */
+  left: 0;
+  font-family: 'Google Sans Code', monospace;
+  font-size: 0.9rem;
+  color: #ffffff; 
+  margin: 0;
+  z-index: 10; /* sit above the typewriter text */
+}
+
+/* alignment helpers */
+.top-directory--left {
+  left: 1rem;
+  right: auto;
+  text-align: left;
+}
+.top-directory--right {
+  right: 1rem;
+  left: auto;
+  text-align: right;
+}
+
+.top-directory a {
+  text-decoration: none;
+  color: #666; /* A subtle grey for the back button */
+  transition: color 0.2s ease;
+}
+
+.top-directory a:hover {
+  color: #1a1a1a;
+}
+
+.current-page {
+  color: #ffffff;
+}
+
+/* projects page css */
+
+.projects-title {
+  font-family: 'Courier New', Courier, monospace;
+  padding: auto;
+}
+
+
+.accordion-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto; /* Centers the whole list perfectly on the page */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* The Clickable Row */
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: 'Google Sans Code', monospace;
+  font-size: 1rem;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.accordion-header:hover {
+  color: cyan; /* hover colour */
+}
+
+.accordion-title {
+  font-weight: normal;
+}
+
+.accordion-status {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* The Expanded Content */
+.accordion-content {
+  padding: 0 0 2rem 0;
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* 1. The Parent Container (Handles the spacing) */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap; /* Allows pills to wrap to the next line on small screens */
+  gap: 0.75rem; /* This creates the physical space between each pill */
+  margin-bottom: 1.5rem;
+}
+
+/* 2. The Individual Pill (Handles the glowing border) */
+.tech-tag {
+  border: 1px solid #00ffcc; 
+  color: #00ffcc;
+  background-color: rgba(0, 255, 204, 0.1); 
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 255, 204, 0.4); 
+}
+
+/* The New Bullet Point Description */
+.project-description-list {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem; /* Gives the bullets a clean indent */
+  color: #ffffff;
+  text-align: left;
+}
+
+.project-description-list li {
+  line-height: 1.8;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem; /* Adds breathing room between each point */
+  max-width: 90%;
+  text-align: left;
+}
+
+/* 1. The Gallery Container */
+.project-image-gallery {
+  display: flex;
+  gap: 1rem; /* Space between the images */
+  margin-bottom: 1.5rem;
+  overflow-x: auto; /* Creates a horizontal scrollbar if you have lots of images */
+  padding-bottom: 0.5rem; /* Prevents the scrollbar from clipping the image */
+}
+
+/* 2. Update your existing image style to fit the gallery */
+.accordion-project-image {
+  width: 100%; 
+  max-width: 500px; 
+  
+  /* 1. Set a fixed height or aspect ratio so all images are uniform */
+  height: 300px; /* You can adjust this number to make the box taller or shorter */
+  
+  /* 2. THE MAGIC RULE: Fills the box, keeps the original shape, and crops the rest */
+  object-fit: cover; 
+  
+  /* 3. Optional: Centers the crop so you don't chop off the top of the image */
+  object-position: center; 
+  
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+/* Optional: Customizing the scrollbar to match your aesthetic */
+.project-image-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.project-image-gallery::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 4px;
+}
+
+.project-image-gallery::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2); 
+  border-radius: 4px;
+}
+
+/*experiences page  css*/
+/* --- 1. THE ORBITAL CANVAS --- */
+.experiences-canvas {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+.floating-box {
+  position: absolute;
+  background-color: #e0e0e0;
+  color: #1a1a1a;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-family: 'Google Sans Code', monospace;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  
+  /* The 14-second orbit loop */
+  animation: orbitSpin 14s linear infinite;
+}
+
+.floating-box:hover {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  animation-play-state: paused;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 10; /* Ensures the hovered box pops over other spinning boxes */
+}
+
+@keyframes orbitSpin {
+  0% { transform: rotate(0deg) translateX(15vw) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(15vw) rotate(-360deg); }
+}
+
+
+/* --- 2. THE MODAL POP-UP --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* z-index: 1000 forces the dark overlay ON TOP of the spinning boxes */
+  z-index: 1000; 
+}
+
+.modal-content {
+  background-color: #f0f0f0; 
+  color: #1a1a1a;
+  padding: 3rem;
+  width: 50%;
+  max-width: 600px;
+  border: 2px solid #1a1a1a;
+  text-align: left;
+}
+
+.close-btn {
+  margin-top: 2rem;
+  background: transparent;
+  color: #1a1a1a;
+  border: none;
+  font-family: 'Google Sans Code', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* 5. Date Styling inside the Modal */
+.experience-date {
+  font-family: 'Google Sans Code', monospace; /* Keeps your custom retro font */
+  font-size: 0.9rem;
+  opacity: 0.6; /* Fades the text slightly so the main description stands out */
+  margin-top: -15px; /* Pulls the date tighter to the header above it */
+  margin-bottom: 20px; /* Pushes the description text further down */
+  text-transform: uppercase; /* Optional: Looks great for terminal-style dates */
+}
+
+
+/*about me page css*/
+
+/* The 50/50 Split Container */
+.about-layout {
+  display: flex;
+  width: 100%;
+  /* Takes up the rest of the screen minus the TopDirectory height */
+  height: calc(100vh - 80px); 
+}
+
+/* Left Side: Image Container */
+.about-left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-right {
+  width: 50%;
+  height: 100%;
+  color: #ffffff; /* White text for contrast */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 4rem;
+  box-sizing: border-box;
+}
+
+.about-text-content p {
+  font-size: clamp(0.5rem, 0.8vw, 1.5rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* The Signature Block */
+.signature-block {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signature-image {
+  width: 250px; /* Adjust this based on your SVG's natural size */
+}
+
+/*everything else*/
+
+.wip-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Pushes the text down into the center of the screen */
+  text-align: center;
+  opacity: 0.7; /* Fades it slightly so it looks like a subtle placeholder */
+}
+
+.wip-container h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.wip-container p {
+  font-size: 1.2rem;
+}
