@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom' 
 import Home from './Home';
 import Projects from './Projects';
 import './App.css';
@@ -11,7 +11,7 @@ import Everything from './Everything';
 
 function App() {
   return (
-    <BrowserRouter basename="/my-portfolio/">
+    <HashRouter>
       {/* Notice how the layout wrapper and HomeNav are gone from here! */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
         <Route path="/everything-else" element={<Everything />} />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
