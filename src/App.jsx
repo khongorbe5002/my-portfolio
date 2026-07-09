@@ -21,6 +21,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/everything-else" element={<Everything />} />
 
+        <Route path="*" element={<Home />} />
+
       </Routes>
     </HashRouter>
   );
