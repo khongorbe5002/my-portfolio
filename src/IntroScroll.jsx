@@ -21,6 +21,7 @@ export default function IntroScroll() {
           }}
           onInit={(typewriter) => {
             typewriter
+              .pauseFor(500)
               .typeString('<br/>') 
               .typeString('<br/>hi my name is honey bat&#8209;erdene')
               .pauseFor(50)
