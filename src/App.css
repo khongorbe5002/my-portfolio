@@ -112,6 +112,7 @@ body {
   text-transform: lowercase;
   color: #ffffff;
   line-height: 1;
+  min-width: 0;
 
 }
 .typewriter-cursor {
