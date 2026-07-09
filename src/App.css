@@ -72,11 +72,11 @@ body {
 /* 1. The wrapper holding the typewriter */
 .typewriter-wrapper {
   width: 70%;
+  max-width: 70%; /* NEW: Forces Safari to respect the 70% boundary */
   height: 80vh; 
   display: flex;
   align-items: flex-start;
   text-align: start;
-
 
   padding-bottom: 40vh;
   
@@ -113,8 +113,14 @@ body {
   color: #ffffff;
   line-height: 1;
   min-width: 0;
-
+  
+  /* NEW: Safari Text-Wrapping Fixes */
+  width: 100%; 
+  white-space: pre-wrap; 
+  word-break: break-word; 
+  overflow-wrap: break-word; 
 }
+
 .typewriter-cursor {
   font-size: clamp(0.1rem, 1.5vw, 6rem); 
   color: #ffffff;
