@@ -1,5 +1,5 @@
 import TopDirectory from './TopDirectory';
-import resumePdf from '../assets/resume.pdf'
+import resumePdf from './assets/resume.pdf'
 
 export default function Resume() {
   return (
