@@ -221,7 +221,8 @@ body {
 /* projects page css */
 
 .projects-title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Google Sans Code', monospace;
+  color: #f0f0f0;
   padding: auto;
 }
 
