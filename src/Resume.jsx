@@ -1,4 +1,5 @@
 import TopDirectory from './TopDirectory';
+import resumePdf from '../assets/resume.pdf'
 
 export default function Resume() {
   return (
@@ -8,7 +9,7 @@ export default function Resume() {
       <div style={{ marginTop: '2rem' }}>        
         {/* This anchor tag automatically triggers a file download */}
         <a 
-          href="/resume.pdf" 
+          href={resumePdf}
           download="Honey_Bat-Erdene_Resume.pdf" 
           style={{
             display: 'inline-block',
@@ -25,7 +26,7 @@ export default function Resume() {
 
         {/* This embeds the PDF directly on the page so they can read it without downloading */}
         <iframe 
-          src="/resume.pdf" 
+          src={resumePdf} 
           height="800px" 
           title="resume_pdf"
           style={{ border: '1px solid #ccc', borderRadius: '8px' }}
