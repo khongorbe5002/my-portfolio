@@ -206,7 +206,7 @@ body {
 
 .top-directory a {
   text-decoration: none;
-  color: #666; /* A subtle grey for the back button */
+  color: #f1f1f1; /* A subtle grey for the back button */
   transition: color 0.2s ease;
 }
 
